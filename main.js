@@ -85,6 +85,7 @@ var fixPixel = function (pixel, needOdd) {
 }
 
 var parseImage = function (image) {
+	var start = new Date().getTime()
 	var sWidth = image.width, sHeight = image.height;
 	
 	var tmp = document.createElement('canvas');
@@ -114,7 +115,8 @@ var parseImage = function (image) {
     }
   }
   tmpContext.putImageData(imageData, 0, 0);
-  
+  var total = new Date().getTime() - start
+console.log("total time : "+total)
   return tmp.toDataURL();
 }
 
