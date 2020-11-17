@@ -1,5 +1,6 @@
 var embedImage = function (image, embedImage) {
 	console.log('gonna embed', embedImage, 'in', image);
+	var start = new Date().getTime()
 	var sWidth = image.width, sHeight = image.height;
 	
 	var tmp = document.createElement('canvas');
@@ -55,6 +56,8 @@ var embedImage = function (image, embedImage) {
   }
   tmpContext.putImageData(embedData, 0, 0);
   
+	var total = new Date().getTime() - start
+console.log("total time : "+total)
   return tmp.toDataURL();
 }
 
